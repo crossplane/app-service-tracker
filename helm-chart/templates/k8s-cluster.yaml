@@ -1,0 +1,7 @@
+apiVersion: compute.crossplane.io/v1alpha1
+kind: KubernetesCluster
+metadata:
+  name: {{ .Release.Name }}-cluster
+spec:
+  writeConnectionSecretToRef:
+    name: service-tracker-cluster
