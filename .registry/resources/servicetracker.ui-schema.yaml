@@ -1,0 +1,31 @@
+configSections:
+- title: Replicas
+  items:
+  - name: flightsAPIReplicas
+    controlType: singleInput
+    path: .spec.flightsAPIReplicas
+    title: Flights Service Replicas
+    type: integer
+    default: 2
+    validation:
+    - required: false
+    - minimum: 1
+  - name: quakesAPIReplicas
+    controlType: singleInput
+    path: .spec.quakesAPIReplicas
+    title: Quakes Service Replicas
+    type: integer
+    default: 2
+    validation:
+    - required: false
+    - minimum: 1
+  - name: weatherAPIReplicas
+    controlType: singleInput
+    path: .spec.weatherAPIReplicas
+    title: Weather Service Replicas
+    type: integer
+    default: 2
+    validation:
+    - required: false
+    - minimum: 1
+initialConfig: true

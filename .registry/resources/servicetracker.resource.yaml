@@ -1,0 +1,23 @@
+id: servicetracker
+title: Service Tracker
+titlePlural: Service Tracker
+category: Information Visualization
+overviewShort: A sample application defined using the v1alpha2 OAM spec.
+overview: |-
+ Service Tracker is a sample application that displays a dashboard of weather, flights, and earthquakes.
+ It is defined in accordance with the OAM v1alpha2 specification.
+# Markdown description of this entry
+readme: |-
+ ### Create ServiceTrackers
+ Before the application will provision, the Crossplane control cluster must
+ be configured to connect to a provider (e.g. GCP, Azure, AWS, Alibaba).
+
+ ```shell
+ cat <<EOF | kubectl apply -f -
+ apiVersion: oam.apps.crossplane.io/v1alpha1
+ kind: ServiceTracker
+ metadata:
+   name: servicetracker-sample
+ EOF
+ ```
+ The stack (and Crossplane) will take care of the rest.
