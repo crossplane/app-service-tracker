@@ -1,0 +1,57 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  name: servicetrackers.oam.apps.crossplane.io
+spec:
+  preserveUnknownFields: true
+  group: oam.apps.crossplane.io
+  names:
+    kind: ServiceTracker
+    listKind: ServiceTrackerList
+    plural: servicetrackers
+    singular: servicetracker
+  scope: Namespaced
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      description: ServiceTracker is the Schema for the servicetrackers API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: ServiceTrackerSpec defines the desired state of a ServiceTracker
+          properties:
+            flightsAPIReplicas:
+              description: The number of replicas for the flights API.
+              type: integer
+            quakesAPIReplicas:
+              description: The number of replicas for the quakes API.
+              type: integer
+            weatherAPIReplicas:
+              description: The number of replicas for the weather API.
+              type: integer
+          type: object
+      type: object
+  version: v1alpha1
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

@@ -1,0 +1,3 @@
+flightsAPIReplicas: 2
+quakesAPIReplicas: 2
+weatherAPIReplicas: 2

@@ -1,0 +1,6 @@
+apiVersion: oam.apps.crossplane.io/v1alpha1
+kind: ServiceTracker
+metadata:
+  name: service-tracker
+spec:
+  weatherAPIReplicas: 3
